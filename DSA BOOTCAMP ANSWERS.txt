@@ -1,0 +1,241 @@
+DSA BOOTCAMP ASSIGNMENT
+
+Q1. Write a program to Swap to two numbers.
+Ans.
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b, temp;
+    cout <<"Enter value of a";
+	cin >>a;
+	cout <<"Enter value of b";
+	cin >>b;
+    cout << "Before swapping." << endl;
+    cout << "a = " << a << ", b = " << b << endl;
+
+    temp = a;
+    a = b;
+    b = temp;
+
+    cout << "\nAfter swapping." << endl;
+    cout << "a = " << a << ", b = " << b << endl;
+
+    return 0;
+}
+
+Q2. Write a program to find the largest number among three numbers entered by the user.
+Ans.
+#include<iostream>
+using namespace std;
+int main() {
+	int num1,num2,num3;
+	cout<<" Enter value for first number";
+	cin>>num1;
+	cout<<" Enter value for second number";
+	cin>>num2;
+	cout<<" Enter value for third number";
+	cin>>num3;
+	if(num1>num2&&num1>num3) {
+		cout<<" First number is greatest no.:"<<endl<<"which is= "<<num1;
+	} else if(num2>num1&&num2>num3) {
+		cout<<" Second number is greatest no."<<endl<<"which is= "<<num2;
+	} else {
+		cout<<" Third number is greatest no."<<endl<<"which is= "<<num3;
+	}
+	return 0;
+}
+
+
+Q3. Write a program to check whether a year entered by a user is Leap year or not.
+Ans:
+#include <iostream>
+using namespace std;
+int main() {
+   int year;
+   cout <<"enter year";	
+   cin >> year;
+   if (year % 4 == 0) {
+      if (year % 100 == 0) {
+         if (year % 400 == 0)
+         cout << year << " is a leap year";
+         else
+         cout << year << " is not a leap year";
+      } else
+      cout << year << " is a leap year";
+   } else
+   cout << year << " is not a leap year";
+   return 0;
+}
+
+
+Q4. Write a program to display Fibonacci Series upto nth term. (Using loops)
+Ans:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int n, t1 = 0, t2 = 1, nextTerm = 0;
+
+    cout << "Enter the number of terms: ";
+    cin >> n;
+
+    cout << "Fibonacci Series: ";
+
+    for (int i = 1; i <= n; ++i) {
+        // Prints the first two terms.
+        if(i == 1) {
+            cout << t1 << ", ";
+            continue;
+        }
+        if(i == 2) {
+            cout << t2 << ", ";
+            continue;
+        }
+        nextTerm = t1 + t2;
+        t1 = t2;
+        t2 = nextTerm;
+        
+        cout << nextTerm << ", ";
+    }
+    return 0;
+}
+
+
+Q5. Write a program to check whether a number is Prime or Not.
+Ans:
+#include <iostream>
+using namespace std;
+
+int main() {
+    int i, n;
+    bool isPrime = true;
+
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    // 0 and 1 are not prime numbers
+    if (n == 0 || n == 1) {
+        isPrime = false;
+    }
+    else {
+        for (i = 2; i <= n / 2; ++i) {
+            if (n % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    if (isPrime)
+        cout << n << " is a prime number";
+    else
+        cout << n << " is not a prime number";
+
+    return 0;
+}
+
+
+Q6. Print this pattern using loops
+For n=5
+	    *
+	   * *
+	  * * *
+	 * * * *
+	* * * * *
+Ans:
+#include <iostream>
+using namespace std;
+void triangle(int n)
+{
+	int k = 2 * n - 2;
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < k; j++)
+			cout << " ";
+		k = k - 1;
+		for (int j = 0; j <= i; j++) {
+			cout << "* ";
+		}
+		cout << endl;
+	}
+}
+int main()
+{
+	int n = 5;
+	triangle(n);
+	return 0;
+}
+
+
+Q7.Write a program that takes n elements from the user and displays the second largest element of an array.
+Ans:
+#include <iostream>
+using namespace std;
+int main(){
+   int n, num[50], largest, second;
+   cout<<"Enter number of elements: ";
+   cin>>n;
+
+
+Q10. CamelCase
+Ans.
+#include <bits/stdc++.h>
+
+using namespace std;
+
+/*
+ * Complete the 'camelcase' function below.
+ *
+ * The function is expected to return an INTEGER.
+ * The function accepts STRING s as parameter.
+ */
+
+int camelcase(string s) {
+    int words=0;
+    for(char&c : s)
+        if(int(c)>=65 && int(c)<90) words++;
+    return words;
+}
+
+int main()
+{
+    ofstream fout(getenv("OUTPUT_PATH"));
+
+    string s;
+    getline(cin, s);
+
+    int result = camelcase(s);
+
+    fout << result << "\n";
+
+    fout.close();
+
+    return 0;
+}
+
+   for(int i=0; i<n; i++){
+      cout<<"Enter Array Element"<<(i+1)<<": ";
+      cin>>num[i];
+   }
+   if(num[0]<num[1]){ 
+      largest = num[1];
+      second = num[0];
+   }
+   else{ 
+      largest = num[0];
+      second = num[1];
+   }
+   for (int i = 2; i< n ; i ++) {
+      if (num[i] > largest) {
+         second = largest;
+         largest = num[i];
+      }
+      else if (num[i] > second && num[i] != largest) {
+         second = num[i];
+      }
+   }
+   cout<<"Second Largest Element in array is: "<<second;
+   return 0;
+}
+
+
